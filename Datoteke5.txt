@@ -1,0 +1,44 @@
+/*Napisati program koji unosi string s tastature, taj string se upisuje u
+datoteku znak po znak. Kada se datoteka zatvori potrebno je otvoriti
+ponovo i njen sadržaj ispisati znak po znak na ekran.*/
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	FILE *f;
+	int i = 0;
+	char niz[256], pom;
+	printf("Unesite string:\n");
+	scanf("%s", niz);
+	f = fopen("unos.txt", "w");
+	if (f == NULL)
+	{
+		printf("Greska\n");
+		exit(1);
+	}
+	else
+	{
+		while (niz[i] != '\0')
+		{
+			putc(niz[i], f);
+			i++;
+		}
+	}
+	fclose(f);
+	f = fopen("unos.txt", "r");
+	if (f == NULL)
+	{
+		printf("Greska\n");
+		exit(1);
+	}
+	else
+	{
+		while ((pom = getc(f)) != EOF)
+		{
+			printf("%c", pom);
+		}
+		printf("\n");
+	}
+	fclose(f);
+	system("pause");
+}

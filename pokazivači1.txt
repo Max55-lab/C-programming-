@@ -1,0 +1,21 @@
+// deklaracija i inicijalizacija pokazivaèa
+// operator dereferenciranja(indirekcije *) i adresni operator (&)
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	int a; // deklaracija varijable
+	int *pokA; // deklaracija pokazivaèa
+
+	a = 5; // inicijalizacija varijable
+	pokA = &a; // inicijalizacija pokazivaèa
+
+	printf("a = %d\n", a);
+	printf("&a = %x\n", &a);
+	printf("*pokA = %d\n", *pokA);
+	printf("pokA = %x\n", pokA);
+	printf("&pokA = %x", &pokA);
+
+	system("pause");
+
+}

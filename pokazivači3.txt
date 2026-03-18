@@ -1,0 +1,18 @@
+// aritmetièke operacije s pokazivaèima
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	int a = 5;
+	int b = 4;
+	int *pok_a = &a;
+	int *pok_b = &b;
+
+	printf("*pok_a + *pok_b = %d\n", *pok_a + *pok_b);
+	printf("*pok_a - *pok_b = %d\n", *pok_a - *pok_b);
+	printf("*pok_a * *pok_b = %d\n", *pok_a * *pok_b);
+	printf("*pok_a / *pok_b = %f\n", (float)*pok_a / *pok_b);
+
+
+	system("pause");
+}

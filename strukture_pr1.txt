@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Datum
+{
+	int dan, mjesec, godina;
+};
+int main() {
+	Datum datum;
+	printf("Unesite danasnji datum\n");
+	scanf("%d %d %d", &datum.dan, &datum.mjesec, &datum.godina);
+	printf("Uneseni datum: %d.%d.%d. \n", datum.dan, datum.mjesec, datum.godina);
+
+	system("pause");
+}

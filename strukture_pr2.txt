@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct Datum
+{
+	int dan;
+	int mjesec;
+	int godina;
+};
+
+struct Student {
+	char ime[10];
+	char prezime[15];
+	char brojIndeksa[10];
+	Datum datumRodjenja;
+	char spol[10];
+};
+int main() {
+	Student studenti[3];
+
+	printf("Unesite podatke za 3 studenta \n");
+	for (int i = 0; i < 3; i++)
+	{
+		printf("Unesite ime: \n");
+		fflush(stdin);
+		scanf("%s", studenti[i].ime);
+		printf("Unesite prezime: \n");
+		fflush(stdin);
+		scanf("%s", studenti[i].prezime);
+		printf("Unesite broj indeksa: \n");
+		fflush(stdin);
+		scanf("%s", studenti[i].brojIndeksa);
+		printf("Unesite spol\n");
+		fflush(stdin);
+		scanf("%s", studenti[i].spol);
+		printf("Unesite datum rodjenja studenta: \n");
+		scanf("%d %d %d", &studenti[i].datumRodjenja.dan, &studenti[i].datumRodjenja.mjesec, &studenti[i].datumRodjenja.godina);
+	}
+
+	printf("Studenti muskog spola: \n");
+	for (int i = 0; i < 3; i++)
+	{
+		if (strcmp(studenti[i].spol,"muski") == 0)
+		{
+				printf("Ime i prezime: %s %s\n", studenti[i].ime, studenti[i].prezime);
+				printf("Broj indeksa: %s \n", studenti[i].brojIndeksa);
+				printf("Spol %s \n", studenti[i].spol);
+				printf("Datum rodjenja: %d.%d.%d.\n", studenti[i].datumRodjenja.dan, studenti[i].datumRodjenja.mjesec, studenti[i].datumRodjenja.godina);
+		}
+	}
+
+	system("pause");
+}

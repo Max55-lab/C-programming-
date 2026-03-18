@@ -1,0 +1,41 @@
+/*U programu se alocira niz od maxsize=5
+cjelobrojnih elemenata. Korisnik zatim unosi niz
+brojeva. Ako broj unesenih brojeva premaši
+maxsize, tada se poveæava alocirana memorija za
+dodatnih 5 elemenata. Unos se prekida kada korisnk
+otkuca slovo. Na kraju se ispisuje niz i dealocira
+memorija.*/
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	int maxsize = 5, pom, index = 0;
+	int *p;
+	p = (int*)malloc(maxsize * sizeof(int));
+	if (p == NULL)
+	{
+		printf("Slobodna memorija nije pronadjena\n");
+		exit(1);
+	}
+	while (scanf("%d", &pom) == 1)
+	{
+		p[index++] = pom;
+		if (index >= maxsize)
+		{
+			maxsize += 5;
+		}
+		p = (int*)realloc(p, maxsize * sizeof(int));
+		if (p == NULL)
+		{
+			printf("Slobodna memorija nije pronadjena\n");
+			exit(1);
+		}
+	}
+	for (int i = 0; i < index; i++)
+	{
+		printf("%d ", *(p+i));
+	}
+	printf("\n");
+	free(p);
+	system("pause");
+}

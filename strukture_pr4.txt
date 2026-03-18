@@ -1,0 +1,50 @@
+/* Definirati strukturu Student sa clanovima prezime i ime, semestar i
+   ocjena. Unijeti podatke za 5 studenata, sortirati ih po prosjeku ocjena,
+   odnosno po abecedi prezimena i imena ako su prosjeci isti i ispisati
+   njihova imena i prosjeke.  */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+struct Student
+{
+	char prezime_ime[30];
+	int semestar;
+	float prosjek;
+};
+
+int main()
+{
+	int i, j;
+	struct Student ST[5], pST;
+
+	puts("Unesi podatke za 5 studenata:");
+	for (i = 0; i < 5; i++)
+	{
+		printf(" - %d. student:\n", i + 1);
+		printf("   - prezime i ime: ");
+		fflush(stdin);
+		scanf("%s", ST[i].prezime_ime);
+		printf("   - semestar: ");
+		scanf("%d", &ST[i].semestar);
+		printf("   - prosjek ocjena: ");
+		scanf("%f", &ST[i].prosjek);
+	}
+
+	for (i = 0; i < 4; i++)
+		for (j = i + 1; j < 5; j++)
+			if ((ST[i].prosjek < ST[j].prosjek) ||
+				((ST[i].prosjek == ST[j].prosjek) && (strcmp(ST[i].prezime_ime, ST[j].prezime_ime) > 0)))
+			{
+				pST = ST[i];
+				ST[i] = ST[j];
+				ST[j] = pST;
+			}
+
+	puts("Studenti sortirani po prosjeku ocjena:");
+	for (i = 0; i < 5; i++)
+		printf("%s (%.2f)\n", ST[i].prezime_ime, ST[i].prosjek);
+
+	system("pause");
+}

@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+int main()
+{
+	char *str;
+
+	/* Inicijalna alokacija memorije */
+	str = (char *)malloc(9);
+	strcpy(str, "Danas je");
+	printf("String = %s,  Adresa = %d\n", str, str);
+
+	/* Realokacija memorije */
+	str = (char *)realloc(str, 16);
+	strcat(str, " utorak");
+	printf("String = %s,  Adresa = %d\n", str, str);
+
+	free(str);
+	system("PAUSE");
+}

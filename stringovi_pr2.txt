@@ -1,0 +1,27 @@
+/* unesite string i prebrojte koliko ima samoglasnika*/
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+int main() {
+	char tekst[100];
+	char samoglasnici[] = { "AEIOUaeiou" };
+	int br = 0;
+	printf("Unesite string: \n");
+	fflush(stdin);
+	gets(tekst);
+
+	for (int i = 0; i < strlen(tekst); i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			if (tekst[i] == samoglasnici[j])
+			{
+				br++;
+			}
+		}
+	}
+	printf("%d", br);
+	system("pause");
+}

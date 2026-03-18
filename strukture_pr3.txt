@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct Brod
+{
+	char vrsta[15];
+	int nosivost;
+	int masa;
+};
+
+int main() {
+	Brod brodovi[5];
+	printf("Unesite vrstu, nosivost i masu za 5 brodova: \n");
+	for (int i = 0; i < 5; i++)
+	{
+		scanf("%s", brodovi[i].vrsta);
+		fflush(stdin);
+		scanf("%d", &brodovi[i].nosivost);
+		scanf("%d", &brodovi[i].masa);
+	}
+	printf("\n");
+	for (int i = 0; i < 5; i++)
+	{
+		if (brodovi[i].nosivost > 100000)
+		{
+			printf("Vrsta broda: %s\n", brodovi[i].vrsta);
+			printf("Nosivost: %d\n", brodovi[i].nosivost);
+			printf("Masa: %d\n", brodovi[i].masa);
+		}
+	}
+	system("pause");
+}

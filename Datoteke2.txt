@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	FILE *f;
+	int i;
+	char string[100] = "Dobar dan!";
+	f = fopen("text.txt", "w");
+	if (f == NULL)
+	{
+		printf("Datoteka nije otvorena\n");
+	}
+	else {
+		i = 0;
+		while (string[i] != '\0')
+		{
+			putc(string[i], f);
+			i++;
+		}
+	}
+	fclose(f);
+
+	f = fopen("text.txt", "r");
+	if (f == NULL)
+	{
+		printf("Datoteka nije otvorena\n");
+	}
+	else
+	{
+		int i = 0;
+		while ((string[i] = getc(f)) != EOF)
+		{
+			i++;
+		}
+		string[i] = '\0';
+		printf("Iz datoteke je procitano: %s\n\n", string);
+	}
+	fclose(f);
+	
+	system("pause");
+}

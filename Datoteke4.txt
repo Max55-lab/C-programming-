@@ -1,0 +1,25 @@
+/*Program kopira sadržaj jedne datoteke u drugu*/
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	FILE *f, *f1;
+	char znak;
+	f = fopen("text.txt", "r");
+	f1 = fopen("text1.txt", "w");
+	if (f == NULL || f1 == NULL)
+	{
+		printf("Dogodila se greska\n");
+		exit(1);
+	}
+	else
+	{
+		while (fscanf(f, "%c", &znak) != EOF)
+		{
+			fprintf(f1, "%c", znak);
+		}
+	}
+	fclose(f);
+	fclose(f1);
+	system("pause");
+}

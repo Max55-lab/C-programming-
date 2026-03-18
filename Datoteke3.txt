@@ -1,0 +1,38 @@
+/*Napisati program u kojem korisnik unosi 10 brojeva u datoteku.
+Nakon unosa, otvoriti datoteku s brojevima, te u nju dodati tekst koji prikazuje sumu brojeva.*/
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	FILE *f;
+	int pom, x, n = 0, suma = 0;
+	f = fopen("brojevi.txt", "w");
+	if (f == NULL)
+	{
+		printf("Datoteka nije otvorena\n");
+	}
+	else {
+		for (int i = 0; i < 10; i++)
+		{
+			scanf("%d", &pom);
+			fprintf(f, "%d ", pom);
+		}
+	}
+	fclose(f);
+
+	f = fopen("brojevi.txt", "r");
+	if (f == NULL)
+	{
+		printf("Datoteka nije otvorena\n");
+	}
+	while (fscanf(f, " %d", &x) != EOF)
+	{
+		suma += x;
+		n++;
+	}
+	fclose(f);
+	f = fopen("brojevi.txt", "a");
+	fprintf(f, "\nSuma %d brojeva je: %d\n\n", n, suma);
+	fclose(f);
+	system("pause");
+}

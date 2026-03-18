@@ -1,0 +1,37 @@
+// sizeof operator
+#include<stdio.h>
+#include<stdlib.h>
+struct Datum {
+	int dan, mjesec, godina;
+};
+
+struct Osoba
+{
+	char Ime[10];
+	char Prezime[15];
+	Datum datumRodjenja;
+};
+
+int main() {
+	int a;
+	float b;
+	char c;
+	Osoba o;
+
+	int *pok_a = &a;
+	float *pok_b = &b;
+	char *pok_c = &c;
+	Osoba *pok_Osoba = &o;
+
+	printf("sizeof(a) = %d\n", sizeof(a));
+	printf("sizeof(b) = %d\n", sizeof(b));
+	printf("sizeof(c) = %d\n", sizeof(c));
+	printf("sizeof(o) = %d\n", sizeof(o));
+
+	printf("sizeof(pok_a) = %d\n", sizeof(pok_a));
+	printf("sizeof(pok_b) = %d\n", sizeof(pok_b));
+	printf("sizeof(pok_c) = %d\n", sizeof(pok_c));
+	printf("sizeof(pok_Osoba) = %d\n", sizeof(pok_Osoba));
+
+	system("pause");
+}

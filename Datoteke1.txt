@@ -1,0 +1,11 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	FILE *f = fopen("text.txt", "r");
+	if (f == NULL)
+	{
+		printf("Datoteka nije otvorena\n");
+	}
+	system("pause");
+}

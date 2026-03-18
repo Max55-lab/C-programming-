@@ -1,0 +1,49 @@
+/*Napišite program koji koristi strukturu "Vozilo" (marka, boja, cijena).
+    Inicijalizirati 5 vozila, te ispisati vozila.
+	Vozila kojima je boja crvena ispisati poredane po abecednom redu.*/
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+struct Vozilo
+{
+	char marka[10];
+	char boja[10];
+	int cijena;
+};
+
+int main() {
+	Vozilo v[5] = {
+		{ "toyota", "crvena", 5000 },
+	{"bmw", "plava", 10000},
+	{"golf", "crna", 1000},
+	{"mercedes", "crvena", 12000},
+	{"audi", "crvena", 10000}
+};
+	Vozilo pom;
+	printf("Popis vozila: \n");
+	for (int i = 0; i < 5; i++)
+	{
+		printf("Marka: %s, boja: %s, cijena: %d \n", v[i].marka, v[i].boja, v[i].cijena);
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = i + 1; j < 5; j++)
+		{
+			if ((strcmp(v[i].marka, v[j].marka) > 0) && (strcmp(v[i].boja, "crvena") == 0))
+			{
+				pom = v[i];
+				v[i] = v[j];
+				v[j] = pom;
+			}
+		}
+	}
+	printf("Sortirano \n");
+	for (int i = 0; i < 5; i++)
+	{
+		printf("Marka: %s, boja: %s, cijena: %d \n", v[i].marka, v[i].boja, v[i].cijena);
+	}
+	system("pause");
+}

@@ -1,0 +1,41 @@
+/*Napišite program u kojem korisnik inicijalizira tablicu
+	definiranih dimenzija NxM. 
+    Program generira novi niz sastavljen od parnih brojeva 
+	koji se nalaze u neparnim redcima tablice.*/
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#define N 3
+#define M 4
+int main() {
+
+	int tablica[N][M] = { 1,2,3,4,5,6,7,8,9,10,11,12 };
+	int niz[N*M];
+	int index = 0;
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			if (tablica[i][j] % 2 == 0 && i % 2 == 0)
+			{
+				niz[index++] = tablica[i][j];
+			}
+		}
+	}
+	printf("Tablica: \n");
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			printf("%d ", tablica[i][j]);
+		}
+		printf("\n");
+	}
+	printf("Niz: \n");
+	for (int i = 0; i < index; i++)
+	{
+		printf("%d ", niz[i]);
+	}
+	system("pause");
+}

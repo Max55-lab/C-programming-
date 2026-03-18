@@ -1,0 +1,24 @@
+// pokazivaèi i strukture
+#include<stdio.h>
+#include<stdlib.h>
+struct Datum {
+	int dan, mjesec, godina;
+};
+
+int main() {
+	Datum danasnjiDatum;
+	Datum *pok_datum = &danasnjiDatum;
+
+	(*pok_datum).dan = 20;
+	(*pok_datum).mjesec = 5;
+	(*pok_datum).godina = 2019;
+
+	printf("%d.%d.%d.\n", (*pok_datum).dan, (*pok_datum).mjesec, (*pok_datum).godina);
+
+	pok_datum->dan = 21;
+	pok_datum->mjesec = 6;
+	pok_datum->godina = 2020;
+
+	printf("%d.%d.%d.\n", pok_datum->dan, pok_datum->mjesec, pok_datum->godina);
+	system("pause");
+}

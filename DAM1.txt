@@ -1,0 +1,29 @@
+/*Program od korisnika traži unos velièine niza, zatim alocira memoriju
+za toliko cijelih brojeva. Ukoliko se alocira slobodna memorija, korisnik
+upisuje vrijednosti elemenata niza. Konaèno, program ispisuje unesene 
+brojeve u obrnutom redoslijedu */
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	int velicina;
+	int *p;
+	printf("Unesite velicinu niza: \n");
+	scanf("%d", &velicina);
+	p = (int*)malloc(velicina * sizeof(int));
+	printf("Unesite %d cijelih brojeva: \n", velicina);
+	if (p != NULL)
+	{
+		for (int i = 0; i < velicina; i++)
+		{
+			scanf("%d", p + i);
+		}
+	}
+	printf("Ispis unesenog niza u obrnutom redoslijedu: \n");
+	for (int i = velicina -1; i >= 0; i--)
+	{
+		printf("%d ", *(p + i));
+	}
+	free(p);
+	system("pause");
+}

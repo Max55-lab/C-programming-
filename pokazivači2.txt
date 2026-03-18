@@ -1,0 +1,16 @@
+// pokazivaè na NULL (null pointer)
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	int a = 5;
+	int *pok_a = NULL;
+
+	printf("a = %d\n", a);
+	if (pok_a == NULL)
+	{
+		printf("*pok_a je NULL \n");
+
+	}
+	system("pause");
+}

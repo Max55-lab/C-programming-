@@ -1,0 +1,19 @@
+// pokazivaèi i nizovi
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+	int niz[10];
+	int *pok_niz = niz;
+
+	for (int i = 0; i < 10; i++)
+	{
+		pok_niz[i] = i;
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		printf("niz[%d] = %d %d\n", i, pok_niz[i], &pok_niz[i]);
+	}
+
+	system("pause");
+}

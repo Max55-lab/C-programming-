@@ -1,0 +1,42 @@
+/* primjer unosi tekst i ispisuje koliko je u njemu rijeci, zanemarujuci pocetne, zavrsne
+   i visestruke razmake unutar teksta */
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+	char tekst[256];
+	int i, pz, zz, br = 1;
+	
+	printf("Unesi tekst: ");
+	fflush(stdin);
+	gets(tekst);
+	
+	/* trazenje prvog znaka koji nije razmak */
+	pz = 0;
+	while(tekst[pz] == ' ')
+	    pz++;
+	
+	/* provjera jesu li u tekstu svi znakovi razmaci */
+	if(pz != strlen(tekst))
+	{		    
+		/* trazenje zadnjeg znaka koji nije razmak */
+		zz = strlen(tekst) - 1;
+		while(tekst[zz] == ' ')
+	    	zz--;
+			    	
+		/* brojanje rijeci uz zanemarivanje visestrukih razmaka */
+		for(i = pz; i <= zz; i++)
+	    	if((tekst[i] == ' ') && (tekst[i - 1] != ' '))
+				br++;
+	}
+	else
+	{
+		/* ako su u tekstu svi znakovi razmaci broj rijeci je 0 */
+		br = 0;
+	}
+	
+	printf("U tekstu je %d rijeci.\n", br);
+}

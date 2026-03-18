@@ -1,0 +1,28 @@
+/*Napišite program koji zahtjeva od korisnika unos stringa i znaka.
+    Program treba ispisati koliko se puta uneseni znak ponavlja u stringu.*/
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+int main() {
+	char tekst[10], znak;
+	int brojac = 0;
+
+	printf("Unesite string: \n");
+	fflush(stdin);
+	scanf("%s", tekst);
+	printf("Unesite znak: \n");
+	fflush(stdin);
+	scanf(" %c", &znak);
+
+	for (int i = 0; i < strlen(tekst); i++)
+	{
+		if (tekst[i] == znak)
+		{
+			brojac++;
+		}
+	}
+	printf("Znak %c se u stringu %s ponavlja %d puta.\n", znak, tekst, brojac);
+	system("pause");
+}

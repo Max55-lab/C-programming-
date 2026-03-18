@@ -1,0 +1,54 @@
+/*Napišite program u kojem se inicijalizira string i od njega formira novi tako da se
+samoglasnici inicijaliziranog stringa ponavljaju i to: samoglasnik a ili A, dva puta,
+samoglasnik e ili E, tri puta, samoglasnik i ili I, èetiri puta, samoglasnik o ili O, pet puta te
+samoglasnik u ili U šest puta. Ostali karakteri se ponavljaju samo jedan put.*/
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+int main() {
+	char niz[100];
+	char niz2[100];
+	int index = 0;
+	printf("Unesite string: \n");
+	fflush(stdin);
+	scanf("%s", niz);
+	for (int i = 0; i < strlen(niz); i++)
+	{
+		if (niz[i] == 'a' || niz[i] == 'A')
+		{
+			for (int i = 0; i < 2; i++)
+			{
+				niz2[index++] = 'a';
+			}
+		}
+		else if (niz[i] == 'e' || niz[i] == 'E') {
+			for (int i = 0; i < 3; i++)
+			{
+				niz2[index++] = 'e';
+			}
+		}
+		else if (niz[i] == 'i' || niz[i] == 'I') {
+			for (int i = 0; i < 4; i++)
+			{
+				niz2[index++] = 'i';
+			}
+		}
+		else if (niz[i] == 'o' || niz[i] == 'O') {
+			for (int i = 0; i < 5; i++)
+			{
+				niz2[index++] = 'o';
+			}
+		}
+		else if (niz[i] == 'u' || niz[i] == 'U') {
+			for (int i = 0; i < 6; i++)
+			{
+				niz2[index++] = 'u';
+			}
+		}
+		else { niz2[index++] = niz[i]; }
+		niz2[index] = '\0';
+	}
+	printf("%s\n", niz2);
+system("pause");
+}
