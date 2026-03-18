@@ -1,0 +1,181 @@
+// Program iz stringa izdvaja sve karaktere osim slova
+#include<stdio.h>
+int main(){
+    char line[150];
+    int i,j;
+    printf("Enter a string: ");
+    gets(line);
+    for(i=0; line[i]!='\0'; ++i)
+    {
+        while (!((line[i]>='a'&&line[i]<='z') || (line[i]>='A'&&line[i]<='Z' || line[i]=='\0')))
+        {
+            for(j=i;line[j]!='\0';++j)
+            {
+                line[j]=line[j+1];
+            }
+            line[j]='\0';
+        }
+    }
+    printf("Output String: ");
+    puts(line);
+    return 0;
+}
+// Program koji pronalazi frekvenciju pojavljivanja odabranog slova
+#include <stdio.h>
+int main(){
+   char c[1000],ch;
+   int i,count=0;
+   printf("Enter a string: ");
+   gets(c);
+   printf("Enter a characeter to find frequency: ");
+   scanf("%c",&ch);
+   for(i=0;c[i]!='\0';++i)
+   {
+       if(ch==c[i])
+           ++count;
+   }
+   printf("Frequency of %c = %d", ch, count);
+   return 0;
+}
+
+//Program koji kopira string
+#include <stdio.h>
+int main()
+{
+    char s1[100], s2[100], i;
+    printf("Enter string s1: ");
+    scanf("%s",s1);
+    for(i=0; s1[i]!='\0'; ++i)
+    {
+        s2[i]=s1[i];
+    }
+    s2[i]='\0';
+    printf("String s2: %s",s2);
+    return 0;
+}
+
+// Pretvaranje heksadecimalnih brojeva u binarne i obrnuto
+
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+void binary_hex(int n, char hex[]);
+int hex_binary(char hex[]);
+int main()
+{
+    char hex[20],c;
+    int n;
+    printf("Instructions:\n");
+    printf("Enter h to convert binary to hexadecimal:\n");
+    printf("Enter b to hexadecimal number to binary:\n");
+    printf("Enter a character: ");
+    scanf("%c",&c);
+    if (c=='h' || c=='H')
+    {
+        printf("Enter binary number: ");
+        scanf("%d",&n);
+        binary_hex(n,hex);
+        printf("Hexadecimal number: %s",hex);
+    }
+    if (c=='b' || c=='B')
+    {
+        printf("Enter hexadecimal number: ");
+        scanf("%s",hex);
+        printf("Binary number: %d",hex_binary(hex));
+    }
+    return 0;
+}
+
+void binary_hex(int n, char hex[]) /* Function to convert binary to hexadecimal. */
+{
+    int i=0,decimal=0, rem;
+    while (n!=0)
+    {
+        decimal += (n%10)*pow(2,i);
+        n/=10;
+        ++i;
+    }
+
+/* At this point, variable decimal contains binary number in decimal format. */
+    i=0;
+    while (decimal!=0)
+    {
+        rem=decimal%16;
+        switch(rem)
+        {
+            case 10:
+              hex[i]='A';
+              break;
+            case 11:
+              hex[i]='B';
+              break;
+            case 12:
+              hex[i]='C';
+              break;
+            case 13:
+              hex[i]='D';
+              break;
+            case 14:
+              hex[i]='E';
+              break;
+            case 15:
+              hex[i]='F';
+              break;
+            default:
+              hex[i]=rem+'0';
+              break;
+        }
+        ++i;
+        decimal/=16;
+    }
+    hex[i]='\0';
+    strrev(hex);       /* Function to reverse string. */
+}
+
+int hex_binary(char hex[])   /* Function to convert hexadecimal to binary. */
+{
+    int i, length, decimal=0, binary=0;
+    for(length=0; hex[length]!='\0'; ++length);
+    for(i=0; hex[i]!='\0'; ++i, --length)
+    {
+        if(hex[i]>='0' && hex[i]<='9')
+            decimal+=(hex[i]-'0')*pow(16,length-1);
+        if(hex[i]>='A' && hex[i]<='F')
+            decimal+=(hex[i]-55)*pow(16,length-1);
+        if(hex[i]>='a' && hex[i]<='f')
+            decimal+=(hex[i]-87)*pow(16,length-1);
+    }
+/* At this point, variable decimal contains the hexadecimal number in decimal format. */
+
+    i=1;
+    while (decimal!=0)
+    {
+        binary+=(decimal%2)*i;
+        decimal/=2;
+        i*=10;
+    }
+    return binary;
+}
+//Program koji okrece string tako da ga proslijedi funkciji
+#include<stdio.h>
+#include<string.h>
+void Reverse(char str[]);
+int main(){
+    char str[100];
+    printf("Enter a string to reverse: ");
+    gets(str);
+    Reverse(str);
+    printf("Reversed string: ");
+    puts(str);
+ return 0;
+}
+void Reverse(char str[]){
+    int i,j;
+    char temp[100];
+    for(i=strlen(str)-1,j=0; i+1!=0; --i,++j)
+    {
+        temp[j]=str[i];
+    }
+    temp[j]='\0';
+    strcpy(str,temp);
+}
